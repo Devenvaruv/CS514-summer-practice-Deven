@@ -1,5 +1,8 @@
 package main;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /** A class that contains several methods for manipulating an array of
  * integers.
  */
@@ -10,7 +13,9 @@ public class ArrayHelper {
      * @param arr array of integers
      */
     public static void print(int[] arr) {
-        //TODO: Replace with your code.
+        for ( int i : arr){
+            System.out.println(i);
+        }
     }
 
     /** Returns the sum of all elements of the array
@@ -19,8 +24,12 @@ public class ArrayHelper {
      * @return sum of elements
      */
     public static int sum(int[] arr) {
+        int summer = 0;
+        for ( int i : arr){
+            summer = summer + i;
+        }
         //TODO: Replace with your code.
-        return 0;
+        return summer;
     }
 
     /** Returns the product of all elements of the array
@@ -29,20 +38,29 @@ public class ArrayHelper {
      * @return product of all elements
      */
     public static int product(int[] arr) {
+        int summer = 1;
+        for ( int i : arr){
+            summer = summer * i;
+        }
         //TODO: Replace with your code.
-        return 1;
+        return summer;
     }
 
     /**
-     * Returns true if all elements of given array are less then
+     * Returns true if all elements of given array are less than
      * the given threshold, and false otherwise
      * @param arr array of integers
      * @param thres threshold
      * @return
      */
     public static boolean threshold(int[] arr, int thres) {
-        //TODO: Replace with your code.
-        return false;
+        for (int i : arr){
+            if(i > thres){
+                return false;
+            }
+
+        }
+       return true;
     }
 
     /** Returns true if elem is present in the array and false otherwise
@@ -54,7 +72,11 @@ public class ArrayHelper {
      * @return
      */
     public static boolean find(int[] arr, int elem) {
-        //TODO: Replace with your code.
+        for (int i : arr){
+            if(i == elem){
+                return true;
+            }
+        }
         return false;
     }
 
@@ -65,8 +87,15 @@ public class ArrayHelper {
      * @return
      */
     public static int countOccurrences(int[] arr, int elem) {
-        //TODO: Replace with your code.
-        return 0;
+        int summer = 0;
+        for (int i : arr){
+            if(i == elem){
+                summer = summer + 1;
+            }
+
+        }
+        return summer;
+
     }
 
     /** Returns true if array of integers has duplicate elements,
@@ -79,7 +108,12 @@ public class ArrayHelper {
      * @return true if array has duplicates and false otherwise
      */
     public static boolean hasDuplicates(int[] arr) {
-        return false;
+        Set<Integer> mySet = new HashSet<Integer>();
+        for (int i : arr){
+            mySet.add(i);
+
+        }
+        return arr.length != mySet.size();
     }
 
     public static void main(String[] args) {
